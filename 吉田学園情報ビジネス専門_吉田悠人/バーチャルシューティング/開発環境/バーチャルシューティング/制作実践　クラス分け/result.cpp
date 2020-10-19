@@ -15,9 +15,9 @@
 //----------------------------------
 char * CResult::pTexture[CGame::STAGE_TYPE_MAX]=
 {
-	"TEXT/ranking1.txt",
-	"TEXT/ranking2.txt",
-	"TEXT/ranking3.txt",
+	"data/TEXT/ranking1.txt",
+	"data/TEXT/ranking2.txt",
+	"data/TEXT/ranking3.txt",
 };
 //---------------------------------
 //コンストラクタ

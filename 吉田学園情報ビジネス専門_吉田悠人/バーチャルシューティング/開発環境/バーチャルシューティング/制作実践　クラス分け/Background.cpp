@@ -22,8 +22,8 @@ CBg::DATA CBg::m_Data[MAX_BG] =
 };
 char *CBg::m_dTexture[MAX_BG]=
 {
-	"TEXTURE/background_game_0.png",
-	"TEXTURE/background_game_1.png",
+	"data/TEXTURE/background_game_0.png",
+	"data/TEXTURE/background_game_1.png",
 };
 //------------------------------------
 //コンストラクタ

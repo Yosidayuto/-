@@ -8,7 +8,7 @@
 //----------------------------------
 CWarning::ANIME_DATA CWarning::WarningAnim =
 {
-	NULL,"TEXTURE/Warning.png",20,2,false,
+	NULL,"data/TEXTURE/Warning.png",20,2,false,
 };
 
 //----------------------------------

@@ -10,13 +10,13 @@
 LPDIRECT3DTEXTURE9 CText::m_pTexture[TEXT_MAX] = {};
 char * CText::m_cTexture[TEXT_MAX]=
 {
-	"TEXTURE/Text_Start.png",
-	"TEXTURE/Text_Start_Last.png",
-	"TEXTURE/Text_Life.png",
-	"TEXTURE/Text_Speed.png",
-	"TEXTURE/Text_Bullet.png",
-	"TEXTURE/Text_Laser.png",
-	"TEXTURE/Text_Homing.png",
+	"data/TEXTURE/Text_Start.png",
+	"data/TEXTURE/Text_Start_Last.png",
+	"data/TEXTURE/Text_Life.png",
+	"data/TEXTURE/Text_Speed.png",
+	"data/TEXTURE/Text_Bullet.png",
+	"data/TEXTURE/Text_Laser.png",
+	"data/TEXTURE/Text_Homing.png",
 
 };
 //------------------------------------

@@ -33,8 +33,8 @@ CButton::BUTTON_TYPE_TEXTURE CButton::TypeTextureData[BUTTON_TYPE_MAX] =
 
 CButton::BUTTON_DATA CButton::ButtonData[BUTTON_TYPE_TEXTURE_MAX]=
 {
-	"TEXTURE/buttonA.png","TEXTURE/buttonC_over.png",NULL,NULL,
-	"TEXTURE/plateA_2.png","TEXTURE/plateA_2_over.png",NULL,NULL,
+	"data/TEXTURE/buttonA.png","data/TEXTURE/buttonC_over.png",NULL,NULL,
+	"data/TEXTURE/plateA_2.png","data/TEXTURE/plateA_2_over.png",NULL,NULL,
 };
 //------------------------------------
 //コンストラクタ

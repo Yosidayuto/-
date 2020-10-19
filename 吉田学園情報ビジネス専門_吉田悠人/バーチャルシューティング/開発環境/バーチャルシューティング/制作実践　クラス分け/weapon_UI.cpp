@@ -51,7 +51,7 @@ HRESULT CWeapon_Ui::Load(void)
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
 	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/UI_WeaponFrame.png", &m_Texture);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/UI_WeaponFrame.png", &m_Texture);
 
 	return S_OK;
 }

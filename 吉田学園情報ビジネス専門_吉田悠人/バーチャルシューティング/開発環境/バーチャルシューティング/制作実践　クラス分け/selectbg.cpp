@@ -17,8 +17,8 @@ CSelectBg::SELECT_DATA CSelectBg::m_Data[MAX_SELECT_BG] =
 };
 char *CSelectBg::m_dTexture[MAX_SELECT_BG] =
 {
-	"TEXTURE/background_Select.png",
-	"TEXTURE/Select_status.png",
+	"data/TEXTURE/background_Select.png",
+	"data/TEXTURE/Select_status.png",
 };
 
 //------------------------------------

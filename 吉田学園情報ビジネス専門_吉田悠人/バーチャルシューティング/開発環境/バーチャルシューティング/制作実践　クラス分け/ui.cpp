@@ -11,11 +11,11 @@
 LPDIRECT3DTEXTURE9 CUi::m_pTexture[TEXTURE_TYPE_MAX] = {};
 char * CUi::pTexture[TEXTURE_TYPE_MAX] =
 {
-	"TEXTURE/UI_score.png",
-	"TEXTURE/UI_Life.png",
-	"TEXTURE/UI_Bullet.png",
-	"TEXTURE/UI_Laser.png",
-	"TEXTURE/UI_Homing.png",
+	"data/TEXTURE/UI_score.png",
+	"data/TEXTURE/UI_Life.png",
+	"data/TEXTURE/UI_Bullet.png",
+	"data/TEXTURE/UI_Laser.png",
+	"data/TEXTURE/UI_Homing.png",
 };
 //------------------------------------
 //コンストラクタ

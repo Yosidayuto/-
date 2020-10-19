@@ -9,12 +9,12 @@
 LPDIRECT3DTEXTURE9 CTelopText::m_apTexture[TEXT_TYPE_MAX] = {};
 char *CTelopText::m_pText[TEXT_TYPE_MAX]=
 {
-	"TEXTURE/Telop_Normal.png",
-	"TEXTURE/Telop_LifeUp.png",
-	"TEXTURE/Telop_SpeedUp.png",
-	"TEXTURE/Telop_Bullet.png",
-	"TEXTURE/Telop_Laser.png",
-	"TEXTURE/Telop_Homing.png",
+	"data/TEXTURE/Telop_Normal.png",
+	"data/TEXTURE/Telop_LifeUp.png",
+	"data/TEXTURE/Telop_SpeedUp.png",
+	"data/TEXTURE/Telop_Bullet.png",
+	"data/TEXTURE/Telop_Laser.png",
+	"data/TEXTURE/Telop_Homing.png",
 };
 //------------------------------------
 //コンストラクタ

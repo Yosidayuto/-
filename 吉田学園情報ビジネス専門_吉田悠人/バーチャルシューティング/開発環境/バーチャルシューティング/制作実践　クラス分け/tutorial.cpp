@@ -13,7 +13,7 @@
 //静的メンバー変数
 //----------------------------------
 LPDIRECT3DTEXTURE9 CTutorial::m_Texture = NULL;
-char * CTutorial::pTexture = "TEXTURE/tutorial.png";
+char * CTutorial::pTexture = "data/TEXTURE/tutorial.png";
 
 //----------------------------------
 //コンストラクタ

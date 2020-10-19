@@ -19,8 +19,8 @@
 LPDIRECT3DTEXTURE9 CEffect::m_pTexture[EFFECT_TYPE_MAX] = {};
 char * CEffect::pTexture[EFFECT_TYPE_MAX]=
 {
-	"TEXTURE/Bullet.png",
-	"TEXTURE/Laser.png"
+	"data/TEXTURE/Bullet.png",
+	"data/TEXTURE/Laser.png"
 };
 
 CEffect::CEffect(int nPriorit):CScene2d(nPriorit)

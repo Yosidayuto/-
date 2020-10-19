@@ -17,10 +17,10 @@
 LPDIRECT3DTEXTURE9 CEnemy::m_Texture[ENEMY_TYPE_MAX] = {};
 char * CEnemy::pTexture[ENEMY_TYPE_MAX]=
 {
-	"TEXTURE/Enemy_1.png",
-	"TEXTURE/Enemy_2.png",
-	"TEXTURE/Enemy_3.png",
-	"TEXTURE/Enemy_4.png",
+	"data/TEXTURE/Enemy_1.png",
+	"data/TEXTURE/Enemy_2.png",
+	"data/TEXTURE/Enemy_3.png",
+	"data/TEXTURE/Enemy_4.png",
 };
 //----------------------------------
 //コンストラクタ

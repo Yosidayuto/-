@@ -42,7 +42,7 @@ HRESULT CClear::Load(void)
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
 	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/Result.png", &m_apTexture[0]);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/Result.png", &m_apTexture[0]);
 
 	return S_OK;
 }

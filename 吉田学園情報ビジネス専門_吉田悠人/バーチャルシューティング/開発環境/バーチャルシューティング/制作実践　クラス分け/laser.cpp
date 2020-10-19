@@ -53,7 +53,7 @@ HRESULT CLaser::Load(void)
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
 	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/Laser.png", &m_pTexture);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/Laser.png", &m_pTexture);
 	return S_OK;
 }
 

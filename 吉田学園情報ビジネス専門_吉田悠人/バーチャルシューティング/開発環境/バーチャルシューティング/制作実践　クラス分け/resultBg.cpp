@@ -32,7 +32,7 @@ HRESULT CResultBg::Load(void)
 {
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/ResultBg.png", &m_apTexture);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/ResultBg.png", &m_apTexture);
 	return S_OK;
 }
 

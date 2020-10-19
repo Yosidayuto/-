@@ -34,7 +34,7 @@ HRESULT CTelopBer::Load(void)
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
 	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/Telop.png", &m_apTexture);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/Telop.png", &m_apTexture);
 
 	return S_OK;
 }

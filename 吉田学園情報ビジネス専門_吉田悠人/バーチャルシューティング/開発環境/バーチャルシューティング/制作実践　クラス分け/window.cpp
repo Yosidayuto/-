@@ -13,7 +13,7 @@
 LPDIRECT3DTEXTURE9	CWindow::m_Texture[WINDOW_TYPE_MAX] = {};
 char *				CWindow::m_pcTexture[WINDOW_TYPE_MAX] =
 {
-	"TEXTURE/Window_Description.png",
+	"data/TEXTURE/Window_Description.png",
 };
 bool CWindow::m_Window[WINDOW_TYPE_MAX] = 
 {

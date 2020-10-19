@@ -14,8 +14,8 @@
 LPDIRECT3DTEXTURE9 CPointer::m_pTexture[POINTER_TYPE_MAX] = {};
 char *CPointer::pTexture[POINTER_TYPE_MAX]=
 {
-	"TEXTURE/MousePointer_Select.png",
-	"TEXTURE/MousePointer_Game.png"
+	"data/TEXTURE/MousePointer_Select.png",
+	"data/TEXTURE/MousePointer_Game.png"
 };
 //=============================================================================
 // コンストラクタ

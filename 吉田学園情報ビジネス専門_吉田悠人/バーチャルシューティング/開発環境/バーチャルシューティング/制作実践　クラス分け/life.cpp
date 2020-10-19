@@ -42,7 +42,7 @@ HRESULT CLife::Load(void)
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetObjects();
 	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice, "TEXTURE/Life_UI.png", &m_apTexture);
+	D3DXCreateTextureFromFile(pDevice, "data/TEXTURE/Life_UI.png", &m_apTexture);
 	return S_OK;
 
 }

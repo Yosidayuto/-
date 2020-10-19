@@ -15,9 +15,9 @@ bool CBoss::m_bDie = false;
 LPDIRECT3DTEXTURE9 CBoss::m_Texture[BOSS_TYPE_MAX] = {};
 char * CBoss::pTexture[BOSS_TYPE_MAX] =
 {
-	"TEXTURE/Boss_1.png",
-	"TEXTURE/Boss_2.png",
-	"TEXTURE/Boss_3.png",
+	"data/TEXTURE/Boss_1.png",
+	"data/TEXTURE/Boss_2.png",
+	"data/TEXTURE/Boss_3.png",
 };
 
 //----------------------------------

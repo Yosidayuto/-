@@ -9,14 +9,14 @@
 //----------------------------------
 CBossAnime::ANIME_DATA CBossAnime::BossAnim[BOSS_ANIME_MAX] = 
 {
-	NULL,"TEXTURE/BossAnime_0.png",45,2,true,
-	NULL,"TEXTURE/DeleteEffect_0.png",45,2,false,
+	NULL,"data/TEXTURE/BossAnime_0.png",45,2,true,
+	NULL,"data/TEXTURE/DeleteEffect_0.png",45,2,false,
 
-	NULL,"TEXTURE/BossAnime_1.png",50,2,true,
-	NULL,"TEXTURE/DeleteEffect_1.png",60,3,false,
+	NULL,"data/TEXTURE/BossAnime_1.png",50,2,true,
+	NULL,"data/TEXTURE/DeleteEffect_1.png",60,3,false,
 
-	NULL,"TEXTURE/BossAnime_2.png",60,2,true,
-	NULL,"TEXTURE/DeleteEffect_2.png",90,2,false,
+	NULL,"data/TEXTURE/BossAnime_2.png",60,2,true,
+	NULL,"data/TEXTURE/DeleteEffect_2.png",90,2,false,
 
 
 };

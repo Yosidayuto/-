@@ -8,27 +8,27 @@
 CSound::PARAM CSound::m_aParam[LABEL_MAX] =
 {
 	//BGM
-	{ "BGM/Title.wav", 0 },		//タイトル
-	{ "BGM/Select.wav", 0 },	//セレクト
-	{ "BGM/Stage_1.wav", 0 },	//ステージ１
-	{ "BGM/Stage_2.wav", 0 },	//ステージ２
-	{ "BGM/Stage_3.wav", 0 },	//ステージ３
-	{ "BGM/Boss1.wav", 0 },		//ボス１
-	{ "BGM/Boss2.wav", 0 },		//ボス２
-	{ "BGM/Boss3.wav", 0 },		//ボス３
-	{ "BGM/Ranking.wav", 0 },	//ランキング
+	{ "data/BGM/Title.wav", 0 },		//タイトル
+	{ "data/BGM/Select.wav", 0 },	//セレクト
+	{ "data/BGM/Stage_1.wav", 0 },	//ステージ１
+	{ "data/BGM/Stage_2.wav", 0 },	//ステージ２
+	{ "data/BGM/Stage_3.wav", 0 },	//ステージ３
+	{ "data/BGM/Boss1.wav", 0 },		//ボス１
+	{ "data/BGM/Boss2.wav", 0 },		//ボス２
+	{ "data/BGM/Boss3.wav", 0 },		//ボス３
+	{ "data/BGM/Ranking.wav", 0 },	//ランキング
 	//SE
-	{ "SE/SE_Button.wav", 0 },//クリック
-	{ "SE/SE_Cancel.wav", 0 },//キャンセル
-	{ "SE/SE_Start.wav", 0 },//スタート
-	{ "SE/SE_Shots.wav", 0 },//ショット
-	{ "SE/SE_Laser.wav", 0 },//レーザー
-	{ "SE/SE_Homing.wav", 0 },//ホーミング
-	{ "SE/SE_Die.wav", 0 },//死んだとき
-	{ "SE/SE_Warning.wav", 0 },//ワーニング
-	{ "SE/SE_Boss1.wav", 0 },//死んだボス(1と3)
-	{ "SE/SE_Boss2.wav", 0 },//死んだボス(2)
-	{ "SE/SE_Result.wav", 0 },//リザルトファンファーレ
+	{ "data/SE/SE_Button.wav", 0 },//クリック
+	{ "data/SE/SE_Cancel.wav", 0 },//キャンセル
+	{ "data/SE/SE_Start.wav", 0 },//スタート
+	{ "data/SE/SE_Shots.wav", 0 },//ショット
+	{ "data/SE/SE_Laser.wav", 0 },//レーザー
+	{ "data/SE/SE_Homing.wav", 0 },//ホーミング
+	{ "data/SE/SE_Die.wav", 0 },//死んだとき
+	{ "data/SE/SE_Warning.wav", 0 },//ワーニング
+	{ "data/SE/SE_Boss1.wav", 0 },//死んだボス(1と3)
+	{ "data/SE/SE_Boss2.wav", 0 },//死んだボス(2)
+	{ "data/SE/SE_Result.wav", 0 },//リザルトファンファーレ
 };
 
 //---------------------------------
