@@ -37,6 +37,7 @@ public:
 protected:
 	bool		m_bTutorial;	//チュートリアル処理スイッチ
 	CTutorial*	m_pTutorial;	//チュートリアルポインタ
+	const int m_nTexture = 11;			// テクスチャ番号
 
 };
 #endif

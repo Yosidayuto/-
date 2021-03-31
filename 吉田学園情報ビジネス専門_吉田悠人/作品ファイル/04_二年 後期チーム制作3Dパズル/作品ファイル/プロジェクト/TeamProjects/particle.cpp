@@ -10,6 +10,7 @@
 //インクルードファイル
 //=============================================================================
 #include "particle.h"
+#include "resource manager.h"
 #include "manager.h"
 #include "renderer.h"
 #include "player.h"
@@ -27,7 +28,6 @@
 //=============================================================================
 //静的メンバ変数宣言
 //=============================================================================
-LPDIRECT3DTEXTURE9	CParticle::m_pTexture = NULL;
 CModel::MODELDATA	CParticle::m_modeldata = {};
 //=============================================================================
 //コンストラクタ
@@ -78,6 +78,10 @@ CParticle* CParticle::Cretae(D3DXVECTOR3 pos, D3DXVECTOR3 distPos, D3DXVECTOR3 s
 //=============================================================================
 void CParticle::Sphere(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 move, D3DXCOLOR col)
 {
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(m_nTexture);
+
 	//パーティクルの移動角度
 	D3DXVECTOR3 actualMove = VECTORPOS_INIT;
 	D3DXVECTOR3 CretaePos = VECTORPOS_INIT;
@@ -103,7 +107,7 @@ void CParticle::Sphere(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 move, D3DX
 		SetSize(size);			//大きさを格納
 		SetColor(col);			//色情報を格納
 		m_move = actualMove;//移動量を代入
-		BindTexture(m_pTexture);//テクスチャ情報を格納
+		BindTexture(Texture);//テクスチャ情報を格納
 	}
 }
 
@@ -112,6 +116,10 @@ void CParticle::Sphere(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 move, D3DX
 //=============================================================================
 void CParticle::Vacuum(D3DXVECTOR3 size, D3DXVECTOR3 move, D3DXCOLOR col)
 {
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(m_nTexture);
+
 	D3DXVECTOR3 CretaePos = VECTORPOS_INIT;
 	// 距離の計算
 	float fDitanse = sqrtf(powf(m_Playerpos.x - m_Childpos.x, 2) +
@@ -146,30 +154,7 @@ void CParticle::Vacuum(D3DXVECTOR3 size, D3DXVECTOR3 move, D3DXCOLOR col)
 	SetSize(size);			//大きさを格納
 	SetColor(col);			//色情報を格納
 	m_move = actualMove ;//移動量を代入
-	BindTexture(m_pTexture);//テクスチャ情報を格納
-}
-
-//=============================================================================
-//テクスチャの読み込み関数
-//=============================================================================
-HRESULT CParticle::Load(void)
-{
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	D3DXCreateTextureFromFile(pDevice, PARTICLE_TEXTURE, &m_pTexture);
-
-	return S_OK;
-}
-
-//=============================================================================
-//テクスチャの破棄関数
-//=============================================================================
-void CParticle::Unload(void)
-{
-	if (m_pTexture!=NULL)
-	{
-		m_pTexture->Release();
-		m_pTexture = NULL;
-	}
+	BindTexture(Texture);//テクスチャ情報を格納
 }
 
 //=============================================================================

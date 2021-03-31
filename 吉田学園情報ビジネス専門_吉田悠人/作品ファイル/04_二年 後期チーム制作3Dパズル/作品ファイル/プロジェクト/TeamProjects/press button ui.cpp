@@ -9,13 +9,9 @@
 // インクルードファイル
 //=============================================================================
 #include "press button ui.h"
+#include "resource manager.h"
 #include "renderer.h"
 #include "manager.h"
-
-//=============================================================================
-// 静的メンバー変数
-//=============================================================================
-TEXTURE_DATA CPressUi::m_TextureData = { NULL,	"Data/Texture/PressButton.png", };
 
 //=============================================================================
 // コンストラクタ
@@ -32,33 +28,6 @@ CPressUi::~CPressUi()
 {
 }
 
-//=============================================================================
-// テクスチャ読み込み
-//=============================================================================
-HRESULT CPressUi::Load(void)
-{
-	//デバイス取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice,
-		m_TextureData.m_cFileName,
-		&m_TextureData.m_pTexture);
-
-	return S_OK;
-}
-
-//=============================================================================
-// テクスチャの破棄
-//=============================================================================
-void CPressUi::Unload(void)
-{
-	//テクスチャの破棄
-	if (m_TextureData.m_pTexture != NULL)
-	{
-		m_TextureData.m_pTexture->Release();
-		m_TextureData.m_pTexture = NULL;
-	}
-}
 
 //=============================================================================
 // 生成処理
@@ -68,6 +37,9 @@ CPressUi * CPressUi::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 	//メモリ確保
 	CPressUi *pPressUi = NULL;
 	pPressUi = new CPressUi;
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pPressUi->m_nTexture);
 
 	//NULLチェック
 	if (pPressUi != NULL)
@@ -77,7 +49,7 @@ CPressUi * CPressUi::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 		//サイズ設定
 		pPressUi->SetSize(D3DXVECTOR3(size.x, size.y, size.z));
 		//テクスチャ設定
-		pPressUi->BindTexture(m_TextureData.m_pTexture);
+		pPressUi->BindTexture(Texture);
 		//初期化処理
 		pPressUi->Init();
 	}

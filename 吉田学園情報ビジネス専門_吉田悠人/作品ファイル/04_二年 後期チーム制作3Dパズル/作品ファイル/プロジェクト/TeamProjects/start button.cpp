@@ -10,15 +10,12 @@
 //=============================================================================
 #include "start button.h"
 #include "renderer.h"
+#include "resource manager.h"
 #include "manager.h"
 #include "pause.h"
 #include "sound.h"
 #include "inputcontroller.h"
 #include "inputkeyboard.h"
-//=============================================================================
-// 静的メンバー変数
-//=============================================================================
-TEXTURE_DATA CStartButton::m_TextureData = { NULL,	"Data/Texture/button/saikai.png", };
 
 //=============================================================================
 // コンストラクタ
@@ -35,34 +32,6 @@ CStartButton::~CStartButton()
 }
 
 //=============================================================================
-// テクスチャ読み込み
-//=============================================================================
-HRESULT CStartButton::Load(void)
-{
-	//デバイス取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice,
-		m_TextureData.m_cFileName,
-		&m_TextureData.m_pTexture);
-
-	return S_OK;
-}
-
-//=============================================================================
-// テクスチャの破棄
-//=============================================================================
-void CStartButton::Unload(void)
-{
-	//テクスチャの破棄
-	if (m_TextureData.m_pTexture != NULL)
-	{
-		m_TextureData.m_pTexture->Release();
-		m_TextureData.m_pTexture = NULL;
-	}
-}
-
-//=============================================================================
 // 生成処理
 //=============================================================================
 CStartButton * CStartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
@@ -70,6 +39,9 @@ CStartButton * CStartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 	//メモリ確保
 	CStartButton *pStartButton = NULL;
 	pStartButton = new CStartButton;
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pStartButton->m_nTexture);
 
 	//NULLチェック
 	if (pStartButton != NULL)
@@ -79,7 +51,7 @@ CStartButton * CStartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 		//サイズ設定
 		pStartButton->SetSize(D3DXVECTOR3(size.x, size.y, size.z));
 		//テクスチャ設定
-		pStartButton->BindTexture(m_TextureData.m_pTexture);
+		pStartButton->BindTexture(Texture);
 		//初期化処理
 		pStartButton->Init();
 	}

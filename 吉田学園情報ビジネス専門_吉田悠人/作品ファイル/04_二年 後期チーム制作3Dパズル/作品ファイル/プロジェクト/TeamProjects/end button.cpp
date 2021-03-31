@@ -10,6 +10,7 @@
 //=============================================================================
 #include "end button.h"
 #include "renderer.h"
+#include "resource manager.h"
 #include "manager.h"
 #include "fade.h"
 #include "inputcontroller.h"
@@ -19,7 +20,6 @@
 //=============================================================================
 // 静的メンバー変数
 //=============================================================================
-TEXTURE_DATA CEndButton::m_TextureData = { NULL,	"Data/Texture/button/titlehe.png", };
 
 //=============================================================================
 // コンストラクタ
@@ -36,34 +36,6 @@ CEndButton::~CEndButton()
 }
 
 //=============================================================================
-// テクスチャ読み込み
-//=============================================================================
-HRESULT CEndButton::Load(void)
-{
-	//デバイス取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice,
-		m_TextureData.m_cFileName,
-		&m_TextureData.m_pTexture);
-
-	return S_OK;
-}
-
-//=============================================================================
-// テクスチャの破棄
-//=============================================================================
-void CEndButton::Unload(void)
-{
-	//テクスチャの破棄
-	if (m_TextureData.m_pTexture != NULL)
-	{
-		m_TextureData.m_pTexture->Release();
-		m_TextureData.m_pTexture = NULL;
-	}
-}
-
-//=============================================================================
 // 生成処理
 //=============================================================================
 CEndButton * CEndButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
@@ -71,6 +43,9 @@ CEndButton * CEndButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 	//メモリ確保
 	CEndButton *pEndButton = NULL;
 	pEndButton = new CEndButton;
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pEndButton->m_nTexture);
 
 	//NULLチェック
 	if (pEndButton != NULL)
@@ -80,7 +55,7 @@ CEndButton * CEndButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 		//サイズ設定
 		pEndButton->SetSize(D3DXVECTOR3(size.x, size.y, size.z));
 		//テクスチャ設定
-		pEndButton->BindTexture(m_TextureData.m_pTexture);
+		pEndButton->BindTexture(Texture);
 		//初期化処理
 		pEndButton->Init();
 	}

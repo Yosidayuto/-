@@ -34,12 +34,6 @@
 #define FADE_RATE 0.03f
 
 //=============================================================================
-// 静的メンバ変数宣言
-//=============================================================================
-LPDIRECT3DTEXTURE9 CTalkbase::m_apTexture[TALK_MAX] = {};
-CTalkbase::TALK CTalkbase::m_Talk = CTalkbase::TALK_NONE;
-
-//=============================================================================
 // コンストラクタ
 //=============================================================================
 CTalkbase::CTalkbase(int nPriorit) :CUi(nPriorit)
@@ -55,44 +49,6 @@ CTalkbase::CTalkbase(int nPriorit) :CUi(nPriorit)
 //=============================================================================
 CTalkbase::~CTalkbase()
 {
-}
-
-//=============================================================================
-// ロード処理
-//=============================================================================
-HRESULT CTalkbase::Load(void)
-{
-	// デバイスの取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	// テクスチャの生成
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_1, &m_apTexture[TALK_1]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_2, &m_apTexture[TALK_2]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_3, &m_apTexture[TALK_3]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_4, &m_apTexture[TALK_4]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_5, &m_apTexture[TALK_5]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_6, &m_apTexture[TALK_6]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_7, &m_apTexture[TALK_7]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_8, &m_apTexture[TALK_8]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_9, &m_apTexture[TALK_9]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_10, &m_apTexture[TALK_10]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_11, &m_apTexture[TALK_11]);
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TALK_12, &m_apTexture[TALK_12]);
-	return S_OK;
-}
-
-//=============================================================================
-// アンロード処理
-//=============================================================================
-void CTalkbase::Unload(void)
-{
-	for (int nCount = 0; nCount < TALK_MAX; nCount++)
-	{
-		if (m_apTexture[nCount] != NULL)
-		{
-			m_apTexture[nCount]->Release();
-			m_apTexture[nCount] = NULL;
-		}
-	}
 }
 
 //=============================================================================
@@ -242,42 +198,5 @@ bool CTalkbase::GetTalkEnd(void)
 }
 
 
-//=============================================================================
-// トークの設定
-//=============================================================================
-void CTalkbase::SetTalk(TALK talk)
-{
-	m_Talk = talk;
-}
 
-//=============================================================================
-// トークのゲッター処理
-//=============================================================================
-CTalkbase::TALK CTalkbase::GetTalk(void)
-{
-	return m_Talk;
-}
 
-//=============================================================================
-// テクスチャの更新
-//=============================================================================
-void CTalkbase::BindTalkTexture(TALK talk)
-{
-	BindTexture(m_apTexture[talk]);
-	SetTalk(talk);
-	//BGMの再生
-	CManager::GetSound()->PlaySound(CSound::SOUND_LABEL_BGM_MESSAGE);
-}
-
-//=============================================================================
-// テクスチャの切り替え
-//=============================================================================
-void CTalkbase::SetFlagTex(TALK talk)
-{
-	// アルファ値がゼロになるまで更新しない
-	if (m_col.a <= 0.0f)
-	{
-		BindTexture(m_apTexture[talk]);
-		SetTalk(talk);
-	}
-}

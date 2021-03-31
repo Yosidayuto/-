@@ -1,7 +1,7 @@
-番号,パス,
+MAX_DATA,19,
 1,Data/Texture/button/titlehe.png,終了ボタン
-2,"""Data/Texture/button/restart.png""",リスタートボタン
-3,"""Data/Texture/button/saikai.png""",スタートボタン
+2,Data/Texture/button/restart.png,リスタートボタン
+3,Data/Texture/button/saikai.png,スタートボタン
 10,Data/Texture/talk_bass/serifu1.png,トーク画像1
 11,Data/Texture/talk_bass/serifu2.png,トーク画像2
 12,Data/Texture/talk_bass/serifu3.png,トーク画像3
@@ -14,7 +14,7 @@
 19,Data/Texture/talk_bass/serifu10.png,トーク画像10
 20,Data/Texture/talk_bass/serifu11.png,トーク画像11
 21,Data/Texture/talk_bass/serifu12.png,トーク画像12
-30,"""Data/Texture/tutorial.png""",チュートリアル
-40,"""Data/Texture/PressButton.png""",プレスボタンUI
-50,"""Data/Texture/BOXSTORY.png""",タイトルロゴ
-70,"""Data/Texture/YellowParticle.png""",パーティクル
+30,Data/Texture/tutorial.png,チュートリアル
+40,Data/Texture/PressButton.png,プレスボタンUI
+41,Data/Texture/BOXSTORY.png,タイトルロゴ
+70,Data/Texture/YellowParticle.png,パーティクル

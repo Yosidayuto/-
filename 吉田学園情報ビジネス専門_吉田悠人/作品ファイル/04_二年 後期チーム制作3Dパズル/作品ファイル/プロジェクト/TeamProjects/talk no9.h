@@ -29,5 +29,7 @@ public:
 	void		Update(void);			// 更新処理
 
 protected:
+	const int m_nTexture = 18;			// テクスチャ番号
+
 };
 #endif

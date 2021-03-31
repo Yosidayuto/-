@@ -23,10 +23,8 @@ public:
 
 	CStartButton();			// コンストラクタ
 	~CStartButton();		// デストラクタ
-	static HRESULT			Load(void);
-	static void				Unload(void);
-	static CStartButton*	Create(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 
+	static CStartButton*	Create(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 
 	HRESULT		Init(void);		// 初期化処理
 	void		Uninit(void);	// 終了処理
@@ -35,7 +33,7 @@ public:
 	void		Push(void);		// プッシュ判定処理
 
 private:
-	static TEXTURE_DATA	m_TextureData;	// テクスチャデータ
+	const int m_nTexture = 3;			// テクスチャ番号
 
 };
 #endif

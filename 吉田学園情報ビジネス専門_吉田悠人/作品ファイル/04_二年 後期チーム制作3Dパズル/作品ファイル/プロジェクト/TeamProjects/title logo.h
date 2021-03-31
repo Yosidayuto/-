@@ -24,15 +24,13 @@ public:
 
 	CTitleLoge(int nPriority = PRIORITY_UI_0);	// コンストラクタ
 	~CTitleLoge();								// デストラクタ
-	static HRESULT		Load(void);
-	static void			Unload(void);
 	static CTitleLoge*	Create(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 
 	HRESULT		 Init(void);			// 初期化処理
 	void		 Update(void);			// 更新処理
 
 private:
-	static TEXTURE_DATA	m_TextureData;	// テクスチャデータ
+	const int m_nTexture = 41;			// テクスチャ番号
 
 };
 #endif

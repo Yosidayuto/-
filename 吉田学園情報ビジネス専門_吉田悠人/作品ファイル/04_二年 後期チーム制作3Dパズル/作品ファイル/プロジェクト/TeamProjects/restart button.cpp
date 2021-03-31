@@ -10,16 +10,12 @@
 //=============================================================================
 #include "restart button.h"
 #include "renderer.h"
+#include "resource manager.h"
 #include "manager.h"
 #include "sound.h"
 #include "inputcontroller.h"
 #include "inputkeyboard.h"
 #include "fade.h"
-
-//=============================================================================
-// 静的メンバー変数
-//=============================================================================
-TEXTURE_DATA CRestartButton::m_TextureData = { NULL,	"Data/Texture/button/restart.png", };
 
 //=============================================================================
 // コンストラクタ
@@ -36,34 +32,6 @@ CRestartButton::~CRestartButton()
 }
 
 //=============================================================================
-// テクスチャ読み込み
-//=============================================================================
-HRESULT CRestartButton::Load(void)
-{
-	//デバイス取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	//テクスチャの読み込み
-	D3DXCreateTextureFromFile(pDevice,
-		m_TextureData.m_cFileName,
-		&m_TextureData.m_pTexture);
-
-	return S_OK;
-}
-
-//=============================================================================
-// テクスチャの破棄
-//=============================================================================
-void CRestartButton::Unload(void)
-{
-	//テクスチャの破棄
-	if (m_TextureData.m_pTexture != NULL)
-	{
-		m_TextureData.m_pTexture->Release();
-		m_TextureData.m_pTexture = NULL;
-	}
-}
-
-//=============================================================================
 // 生成処理
 //=============================================================================
 CRestartButton * CRestartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
@@ -71,6 +39,10 @@ CRestartButton * CRestartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 	//メモリ確保
 	CRestartButton *pRestartButton = NULL;
 	pRestartButton = new CRestartButton;
+
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pRestartButton->m_nTexture);
 
 	//NULLチェック
 	if (pRestartButton != NULL)
@@ -80,7 +52,7 @@ CRestartButton * CRestartButton::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 		//サイズ設定
 		pRestartButton->SetSize(D3DXVECTOR3(size.x, size.y, size.z));
 		//テクスチャ設定
-		pRestartButton->BindTexture(m_TextureData.m_pTexture);
+		pRestartButton->BindTexture(Texture);
 		//初期化処理
 		pRestartButton->Init();
 	}

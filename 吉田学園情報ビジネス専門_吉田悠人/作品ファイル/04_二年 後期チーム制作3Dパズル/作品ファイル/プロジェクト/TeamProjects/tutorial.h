@@ -27,8 +27,6 @@ public:
 	~CTutorial();
 
 	static CTutorial *Create(void);
-	static HRESULT Load(void);
-	static void Unload(void);
 
 	HRESULT Init(void);
 	void Uninit(void);
@@ -36,7 +34,8 @@ public:
 	void Draw(void);
 	void TutorialUninit(void);
 private:
-	static LPDIRECT3DTEXTURE9 m_pTexture;
 	CObject2D* m_pObject2d;
+	const int m_nTexture = 30;			// テクスチャ番号
+
 };
 #endif // !_UI_H_

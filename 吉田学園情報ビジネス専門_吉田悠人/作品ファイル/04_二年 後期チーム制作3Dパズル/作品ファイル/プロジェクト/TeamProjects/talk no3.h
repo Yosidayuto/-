@@ -37,5 +37,7 @@ protected:
 	bool		m_bTutorial;	//チュートリアル処理スイッチ
 	CTutorial*	m_pTutorial;	//チュートリアルポインタ
 	CChild*		m_pChild;		//チャイルドブロックのポインタ
+	const int m_nTexture = 12;			// テクスチャ番号
+
 };
 #endif

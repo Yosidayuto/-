@@ -43,6 +43,7 @@ public:
 	void	Draw(void);											// 描画関数
 	
 	static CRenderer*	GetRenderer(void);			// レンダラゲッター
+	static CResource*	GetResource(void);			// リソースゲッター
 	static CInput*		GetInputKey(void);			// キーボード取得
 	static CInput*		GetInputMou(void);			// マウス取得
 	static CInput*		GetInputController(void);	// コントローラー取得

@@ -23,8 +23,6 @@ public:
 
 	CEndButton();		// コンストラクタ
 	~CEndButton();		// デストラクタ
-	static HRESULT		Load(void);
-	static void			Unload(void);
 	static CEndButton*	Create(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 
 
@@ -35,7 +33,6 @@ public:
 	void		Push(void);		// プッシュ判定処理
 
 private:
-	static TEXTURE_DATA	m_TextureData;	// テクスチャデータ
-
+	const int m_nTexture = 1;			// テクスチャ番号
 };
 #endif

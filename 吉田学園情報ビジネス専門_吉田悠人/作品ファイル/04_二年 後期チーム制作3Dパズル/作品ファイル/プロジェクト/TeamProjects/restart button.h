@@ -23,8 +23,6 @@ public:
 
 	CRestartButton();			// コンストラクタ
 	~CRestartButton();		// デストラクタ
-	static HRESULT			Load(void);
-	static void				Unload(void);
 	static CRestartButton*	Create(D3DXVECTOR3 pos, D3DXVECTOR3 size);
 
 
@@ -35,7 +33,7 @@ public:
 	void		Push(void);		// プッシュ判定処理
 
 private:
-	static TEXTURE_DATA	m_TextureData;	// テクスチャデータ
+	const int m_nTexture = 2;			// テクスチャ番号
 
 };
 #endif

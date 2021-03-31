@@ -9,6 +9,7 @@
 //インクルードファイル
 //=============================================================================
 #include "tutorial.h"
+#include "resource manager.h"
 #include "manager.h"
 #include "renderer.h"
 #include "sound.h"
@@ -19,35 +20,6 @@
 #define TEXTURE_PATH_TUTORIAL "Data/Texture/tutorial.png"
 #define TUTORIAL_POS (D3DXVECTOR3((SCREEN_WIDTH/2),(SCREEN_HEIGHT/2),0.0f))
 #define TUTORIAL_SIZE (D3DXVECTOR3(SCREEN_WIDTH,SCREEN_HEIGHT,0.0f))
-
-//=============================================================================
-// 静的メンバ変数宣言初期化
-//=============================================================================
-LPDIRECT3DTEXTURE9 CTutorial::m_pTexture = {};
-
-//=============================================================================
-// ロード処理
-//=============================================================================
-HRESULT CTutorial::Load(void)
-{
-	// デバイスの取得
-	LPDIRECT3DDEVICE9 pDevice = CManager::GetRenderer()->GetDevice();
-	// テクスチャの生成
-	D3DXCreateTextureFromFile(pDevice, TEXTURE_PATH_TUTORIAL, &m_pTexture);
-	return S_OK;
-}
-
-//=============================================================================
-// アンロード処理
-//=============================================================================
-void CTutorial::Unload(void)
-{
-	if (m_pTexture != NULL)
-	{
-		m_pTexture->Release();
-		m_pTexture = NULL;
-	}
-}
 
 //=============================================================================
 // コンストラクタ
@@ -70,7 +42,11 @@ CTutorial::~CTutorial()
 CTutorial * CTutorial::Create(void)
 {
 	// メモリの確保
-	CTutorial * pTutorial = new CTutorial;
+	CTutorial * pTutorial = NULL;
+	pTutorial = new CTutorial;
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pTutorial->m_nTexture);
 
 	if (pTutorial != NULL)
 	{
@@ -79,7 +55,7 @@ CTutorial * CTutorial::Create(void)
 		// サイズをset
 		pTutorial->SetSize(TUTORIAL_SIZE);
 		// テクスチャ指定
-		pTutorial->BindTexture(m_pTexture);
+		pTutorial->BindTexture(Texture);
 		// 初期化処理
 		pTutorial->Init();
 	}

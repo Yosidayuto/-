@@ -70,7 +70,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     //初期化処理
     //マネージャー初期化
 	pManager = new CManager;
-    pManager->Init(hWnd, false, hInstance);
+    pManager->Init(hWnd, true, hInstance);
     
 	// 分解能を設定
     timeBeginPeriod(1);

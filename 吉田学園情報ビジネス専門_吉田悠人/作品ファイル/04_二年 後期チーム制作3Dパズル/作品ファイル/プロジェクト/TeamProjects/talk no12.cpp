@@ -9,6 +9,7 @@
 // インクルードファイル
 //=============================================================================
 #include "talk_base.h"
+#include "resource manager.h"
 #include "inputkeyboard.h"
 #include "inputcontroller.h"
 #include "renderer.h"
@@ -38,6 +39,9 @@ CTalkNo12 * CTalkNo12::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 	//メモリ確保
 	CTalkNo12* pTalkNo12 = nullptr;
 	pTalkNo12 = new CTalkNo12;
+	//リソース確保
+	CResource* pResource = CManager::GetResource();
+	LPDIRECT3DTEXTURE9 Texture = pResource->TextureLoad(pTalkNo12->m_nTexture);
 
 	if (pTalkNo12 != nullptr)
 	{
@@ -45,6 +49,8 @@ CTalkNo12 * CTalkNo12::Create(D3DXVECTOR3 pos, D3DXVECTOR3 size)
 		pTalkNo12->SetPos(pos);
 		//サイズ設定
 		pTalkNo12->SetSize(size);
+		//テクスチャ設定
+		pTalkNo12->BindTexture(Texture);
 		//初期化処理
 		pTalkNo12->Init();
 	}
@@ -60,8 +66,6 @@ HRESULT CTalkNo12::Init(void)
 	SetAppear(TALK_APPEAR);
 	//フェード状況設定
 	SetFade(FADE_IN);
-	//テクスチャ設定
-	BindTexture(m_apTexture[TALK_12]);
 
 	//初期化処理
 	CTalkbase::Init();

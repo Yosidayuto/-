@@ -35,6 +35,7 @@ public:
 	void		Talk(void);				// トークを進める関数
 
 protected:
+	const int m_nTexture = 14;			// テクスチャ番号
 
 };
 #endif

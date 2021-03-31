@@ -282,7 +282,7 @@ void CPlayer::Control(void)
 		// コントローラー十字キーの値の取得
 		CInputJoyStick* pJoyInput = (CInputJoyStick*)CManager::GetInputController();
 		WORD joyCross = CROSS_KEY_NEUTRAL;
-		if (pJoyInput != NULL) joyCross = pJoyInput->GetJoyStick().rgdwPOV[0];
+		if (pJoyInput != NULL) joyCross = (WORD)pJoyInput->GetJoyStick().rgdwPOV[0];
 
 		//エラー音の切替関数
 		ErrorStatus();

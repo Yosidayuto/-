@@ -38,15 +38,13 @@ public:
 	 void Sphere(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 move, D3DXCOLOR col);
 	 void Vacuum(D3DXVECTOR3 size, D3DXVECTOR3 move, D3DXCOLOR col);
 	static CParticle *Cretae(D3DXVECTOR3 pos, D3DXVECTOR3 distPos, D3DXVECTOR3 size, D3DXVECTOR3 move,D3DXCOLOR col, PARTICLE_TYPE type);
-	static HRESULT Load(void);						//テクスチャ読み込み
-	static void Unload(void);						//テクスチャの破棄
 	HRESULT Init(void);								//初期化関数
 	void Update(void);								//更新関数
 	void Uninit(void);								//終了関数
 	void Draw(void);								//描画関数
 
 private:
-	static LPDIRECT3DTEXTURE9 m_pTexture;	//読み込むテクスチャ
+	const int m_nTexture = 70;			// テクスチャ番号
 	D3DXVECTOR3 m_Playerpos;				//プレイヤーの位置
 	D3DXVECTOR3 m_Childpos;					//子供の位置
 	D3DXVECTOR3 m_move;						//移動量

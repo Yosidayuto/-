@@ -66,7 +66,7 @@ HRESULT CManager::Init(HWND hWnd, bool bWindow, HINSTANCE hInstance)
 	//ƒŒƒ“ƒ_ƒ‰‚ğ‰Šú‰»
 	if (m_pRenderer != NULL)
 	{
-		hResult = m_pRenderer->Init(hWnd, false);   
+		hResult = m_pRenderer->Init(hWnd, bWindow);
 	}
 
 	//ƒ‰ƒCƒg‚Ì¶¬
@@ -314,6 +314,11 @@ void CManager::Draw(void)
 CRenderer* CManager::GetRenderer(void)
 {
     return m_pRenderer;
+}
+
+CResource * CManager::GetResource(void)
+{
+	return m_Resource;
 }
 
 CInput* CManager::GetInputKey(void)
