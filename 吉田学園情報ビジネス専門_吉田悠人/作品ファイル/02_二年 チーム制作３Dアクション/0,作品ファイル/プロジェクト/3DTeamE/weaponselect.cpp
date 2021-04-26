@@ -64,10 +64,10 @@ HRESULT CWeaponSelect::Init(void)
 	CSound * pSound = CManager::GetSound();
 	pSound->StopSound();
 	pSound->PlaySound(CSound::SOUND_LABEL_BGM_WEAPONSELECT);
-	//カメラ位置セット
+
 	m_pWeaponSelectScene = CWeaponSelectScene::Create(D3DXVECTOR3(SCREEN_WIDTH / 2,SCREEN_HEIGHT / 2, 0.0f), D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT, 0.0f));
-	m_pAssaultButton = CAssaultButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4) - 100, 0.0f), D3DXVECTOR3(700, 600, 0.0f));
-	m_pHandgunButton = CHandgunButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4 + SCREEN_WIDTH / 2, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4) - 100, 0.0f), D3DXVECTOR3(700, 600, 0.0f));
+	m_pAssaultButton = CAssaultButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4) - 100, 0.0f), D3DXVECTOR3(500, 400, 0.0f));
+	m_pHandgunButton = CHandgunButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4 + SCREEN_WIDTH / 2, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4) - 100, 0.0f), D3DXVECTOR3(500, 400, 0.0f));
 	return S_OK;
 }
 

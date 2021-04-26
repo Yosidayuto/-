@@ -133,7 +133,7 @@ void CMonitor::Update(void)
 			pSound->PlaySound(CSound::SOUND_LABEL_SE_MAPEXPLOSION);
 			pSound->PlaySound(CSound::SOUND_LABEL_SE_ALARM);
 			pSound->PlaySound(CSound::SOUND_LABEL_BGM_LASTMAP);
-			CCountDown::Create(60, D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 - 200, 0.0f), D3DXVECTOR3(200.0f, 100.0f, 100.0f));
+			CCountDown::Create(60, D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 -100, 0.0f), D3DXVECTOR3(200.0f, 100.0f, 100.0f));
 			//èIóπ
 			Uninit();
 			return;

@@ -33,9 +33,9 @@ HRESULT CPause::Init(void)
     while(ShowCursor(true) <0);
     m_pObject2d = CObject2D::Create(D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT, 0) / 2, D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT, 0), 3);
     m_pObject2d->SetCol(D3DCOLOR_RGBA(0, 0, 0, 128));
-    m_pContinueButton    = CContinueButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4, 0), D3DXVECTOR3(800, 200, 0));
-    m_pReturnTitleButton = CReturnTitleButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 * 2, 0), D3DXVECTOR3(800, 200, 0));
-    m_pRetryButton       = CRetryButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 * 3, 0), D3DXVECTOR3(800, 200, 0));
+    m_pContinueButton    = CContinueButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4, 0), D3DXVECTOR3(800, 180, 0));
+    m_pReturnTitleButton = CReturnTitleButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 * 2, 0), D3DXVECTOR3(800, 180, 0));
+    m_pRetryButton       = CRetryButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 * 3, 0), D3DXVECTOR3(800, 180, 0));
 
     return S_OK;
 }

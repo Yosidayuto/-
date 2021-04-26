@@ -23,9 +23,9 @@ LPDIRECT3DTEXTURE9 CMission::m_pTexture = NULL;
 //=============================================================================
 CMission::CMission()
 {
-	D3DXVECTOR3	m_pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	D3DXVECTOR3	m_size = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	D3DCOLOR	m_col = D3DCOLOR_RGBA(255, 255, 255, 255);
+	m_pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_size = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_col = D3DCOLOR_RGBA(255, 255, 255, 255);
 	for (int nCount = 0; nCount < NUM_VERTEX; nCount++)
 	{
 		m_texpos[nCount] = D3DXVECTOR2(0.0f, 0.0f);

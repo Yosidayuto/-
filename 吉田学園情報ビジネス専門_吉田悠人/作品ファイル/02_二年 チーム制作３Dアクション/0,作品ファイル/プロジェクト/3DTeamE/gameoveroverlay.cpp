@@ -52,8 +52,8 @@ void CGameoverOverlay::Update(void)
         CSound* pSound = CManager::GetSound();
         pSound->StopSound();
         pSound->PlaySound(CSound::SOUND_LABEL_BGM_CONTINUE);
-        m_pReturnTitleButton = CReturnTitleButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4 * 3, SCREEN_HEIGHT / 2, 0), D3DXVECTOR3(800, 200, 0));
-        m_pRetryButton       = CRetryButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2, 0), D3DXVECTOR3(800, 200, 0));
+        m_pReturnTitleButton = CReturnTitleButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4 * 3, SCREEN_HEIGHT / 2, 0), D3DXVECTOR3(600, 100, 0));
+        m_pRetryButton       = CRetryButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2, 0), D3DXVECTOR3(600, 100, 0));
     }
 }
 void CGameoverOverlay::Draw(void)

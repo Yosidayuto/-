@@ -27,6 +27,7 @@ CCrosshair::CCrosshair()
 {
     m_fspread    = 0;
     m_fminspread = 0;
+	ZeroMemory(m_apObject2d,sizeof(m_apObject2d));
 }
 
 //・・・・・・・・・・・・・・・・・・・・・・・・・・・
@@ -44,7 +45,7 @@ HRESULT CCrosshair::Init(void)
     //2Dポリゴンの生成
     for(int nCount = 0; nCount < 4; nCount++)
     {
-        if(m_apObject2d[nCount] != NULL)
+        if(m_apObject2d[nCount] == NULL)
         {
             m_apObject2d[nCount] = CObject2D::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0), CROSSHAIR_PART_SIZE, 2);
             m_apObject2d[nCount]->SetRot(nCount * 90.0f);
@@ -128,8 +129,10 @@ CCrosshair* CCrosshair::Create(float minSpread)
 {
     CCrosshair* pCrosshair   = NULL;
     pCrosshair               = new CCrosshair;
+
     pCrosshair->m_fminspread = minSpread;
     pCrosshair->Init();
+
     return pCrosshair;
 }
 

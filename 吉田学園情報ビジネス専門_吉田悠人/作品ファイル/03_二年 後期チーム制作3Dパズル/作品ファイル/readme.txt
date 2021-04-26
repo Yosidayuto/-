@@ -14,6 +14,7 @@
 //担当箇所
 //***************************************************
 ・camera.cpp/.h
+・resource manager.cpp/.h
 ・Blockすべて
 ・player.cpp/.hの当たり判定関数と行動範囲処理関数
 ・button.cpp/.h

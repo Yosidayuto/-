@@ -70,7 +70,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     // ウィンドウの作成
     hWnd = CreateWindow(CLASS_NAME,
                         WINDOW_NAME,
-						WS_VISIBLE | WS_POPUP,
+						WS_OVERLAPPEDWINDOW,
                         CW_USEDEFAULT,
                         CW_USEDEFAULT,
                         (rect.right - rect.left),
@@ -81,7 +81,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                         NULL);
     //初期化処理
     pManager = new CManager;
-    pManager->Init(hWnd, true, hInstance);
+    pManager->Init(hWnd, false, hInstance);
 
     // 分解能を設定
     timeBeginPeriod(1);

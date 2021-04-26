@@ -123,7 +123,7 @@ HRESULT CManager::Init(HWND hWnd, bool bWindow, HINSTANCE hInstance)
 {
     HRESULT hResult = NULL;
     m_pRenderer     = new CRenderer;                    //レンダラを生成
-    hResult         = m_pRenderer->Init(hWnd, true);    //レンダラを初期化
+    hResult         = m_pRenderer->Init(hWnd, bWindow);    //レンダラを初期化
 
     CLight* pLight = NULL;    //ライトの生成
     pLight         = new CLight;

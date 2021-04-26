@@ -55,7 +55,6 @@ HRESULT CResult::Init(void)
 	pSound->PlaySound(CSound::SOUND_LABEL_BGM_RESULT);
 	while (ShowCursor(true)<0);
 	D3DXVECTOR3 vec = D3DXVECTOR3(0, 0, 0); //ベクトル定義
-	//m_pResultScene = CResultScene::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f), D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT, 0.0f));
 	m_pMission = CMission::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 -100, 0.0f), D3DXVECTOR3(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT - 100, 0.0f));
 	m_pClear = CClear::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f), D3DXVECTOR3(SCREEN_WIDTH, SCREEN_HEIGHT / 2, 0.0f));
 	m_nCount = 0;
