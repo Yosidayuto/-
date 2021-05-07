@@ -9,7 +9,6 @@
 //インクルードファイル
 //・・・・・・・・・・・・・・・・・・・・・・・・・・・
 #include "tutorial.h"
-
 #include "bullet_ui.h"
 #include "camera.h"
 #include "computer.h"

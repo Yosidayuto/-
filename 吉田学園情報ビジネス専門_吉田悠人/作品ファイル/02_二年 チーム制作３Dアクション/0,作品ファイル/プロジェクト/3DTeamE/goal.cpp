@@ -31,50 +31,42 @@ CGoal::CGoal()
 	SetObjType(OBJTYPE_NONE);
 }
 
-//=============================================================================
-// デストラクタ
-//=============================================================================
-CGoal::~CGoal()
-{
-}
 
 //=============================================================================
 // 生成関数
+// CManager::MODE Mode（次のステージ設定）
 //=============================================================================
 CGoal * CGoal::Create(D3DXVECTOR3 pos, D3DXVECTOR3 rot, D3DXVECTOR3 size, D3DXCOLOR col, CManager::MODE Mode)
 {
+	//メモリ確保
 	CGoal* pGoal = NULL;
 	pGoal = new CGoal;
-	pGoal->SetPosition(pos);
-	pGoal->SetRotation(rot);
-	pGoal->SetSize(size);
-	pGoal->m_GameMode = Mode;
-	for (int nMesh = 0; nMesh < MESH_Y_BLOCK + 1; nMesh++)
-	{
-		pGoal->SetColor(D3DXCOLOR(col.r, col.g, col.b, nMesh*0.1f), nMesh);
-	}
 
-	pGoal->Init();
+	//メモリが確保されているか
+	if (pGoal!=NULL)
+	{
+		//位置設定
+		pGoal->SetPosition(pos);
+		//向き設定
+		pGoal->SetRotation(rot);
+		//サイズ設定
+		pGoal->SetSize(size);
+		//ゴールした際の次のマップ
+		pGoal->m_GameMode = Mode;
+
+		//色設定
+		for (int nMesh = 0; nMesh < MESH_Y_BLOCK + 1; nMesh++)
+		{
+			pGoal->SetColor(D3DXCOLOR(col.r, col.g, col.b, nMesh*0.1f), nMesh);
+		}
+
+		//初期化処理
+		pGoal->Init();
+	}
 	return pGoal;
 }
 
-//=============================================================================
-// 初期化関数
-//=============================================================================
-HRESULT CGoal::Init(void)
-{
-	CMeshCylinder::Init();
-	return S_OK;
-}
 
-//=============================================================================
-// 終了関数
-//=============================================================================
-void CGoal::Uninit(void)
-{
-	CMeshCylinder::Uninit();
-	Release();
-}
 
 //=============================================================================
 // 更新関数
@@ -90,16 +82,14 @@ void CGoal::Update(void)
 }
 
 //=============================================================================
-// 描画関数
+// ゴール判定関数
 //=============================================================================
-void CGoal::Draw(void)
-{
-	CMeshCylinder::Draw();
-}
-
 void CGoal::HitGoal(void)
 {
+	//プレイヤーの位置取得
 	D3DXVECTOR3 Playerpos = CManager::GetPlayer()->GetPos();
+
+	//当たり判定
 	if (GetPos().x+(GetSize().x/2)>Playerpos.x
 		&&GetPos().x - (GetSize().x / 2)<Playerpos.x
 		&&GetPos().z + (GetSize().z / 2)> Playerpos.z
@@ -108,6 +98,8 @@ void CGoal::HitGoal(void)
 		//サウンドの取得
 		CSound * pSound = CManager::GetSound();
 		pSound->StopSound();
+
+		//次のステージ遷移
 		CManager::GetFade()->SetFade(m_GameMode);
 		Uninit();
 	}

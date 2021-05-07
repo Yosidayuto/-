@@ -36,11 +36,10 @@ class CMeshCylinder :public CObject
 {
 public:
 	CMeshCylinder();
-	~CMeshCylinder();
-	HRESULT Init(void);
-	void Uninit(void);
-	void Update(void);
-	void Draw(void);
+	virtual HRESULT Init(void);
+	virtual void Uninit(void);
+	virtual void Update(void);
+	virtual void Draw(void);
 
 	void SetPosition(D3DXVECTOR3 pos);
 	void SetRotation(D3DXVECTOR3 rot);

@@ -40,6 +40,7 @@ CEnemy::CEnemy()
     m_pQuestion    = NULL;
     m_pExclamation = NULL;
 	m_nAttack_SE   = 0;
+	m_State = STATE_NORMAL;
 }
 
 //=============================================================================
@@ -325,8 +326,9 @@ bool CEnemy::Search(const float fRangeDistance, const float fViewingAngle)
     float fDistancePlayer  = 0;
     float fClosestDistance = 999999999.9f;
     float fDistance        = 0;
-    bool bSearch           = false;
+    bool   bSearch           = false;
     float fPlayerRotOld    = 0.0f;
+
     //NULLチェック
     for(int nCount = 0; nCount < PRIORITY_MAX; nCount++)
     {
@@ -350,9 +352,7 @@ bool CEnemy::Search(const float fRangeDistance, const float fViewingAngle)
 								//距離確認
 								if (fRangeDistance > fDistancePlayer)
 								{
-									//距離確認
-									if (fRangeDistance > fDistancePlayer)
-									{
+									
 										//プレイヤーの方向
 										float fPlayerRot = D3DXToDegree(atan2f((m_pos.x - ((CPlayer*)((CModel*)pNext)->GetParentObject())->GetPos().x), (m_pos.z - ((CPlayer*)((CModel*)pNext)->GetParentObject())->GetPos().z)));
 										//視野の右と左の最大数
@@ -386,8 +386,6 @@ bool CEnemy::Search(const float fRangeDistance, const float fViewingAngle)
 												bSearch = true;
 											}
 										}
-
-									}
 								}
 							}
                         }

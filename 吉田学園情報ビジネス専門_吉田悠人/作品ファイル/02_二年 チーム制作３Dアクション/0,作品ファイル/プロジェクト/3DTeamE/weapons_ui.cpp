@@ -13,6 +13,13 @@
 #include "renderer.h"
 #include "billboard.h"
 #include "manager.h"
+
+//*****************************************************************************
+//　マクロ定義
+//*****************************************************************************
+#define SIZE_X (250.0f)
+#define SIZE_Y (150.0f)
+
 //*****************************************************************************
 //　静的メンバ変数の初期化
 //*****************************************************************************
@@ -22,23 +29,13 @@ char *CWeapons_ui::m_cFileName[WEAPONS_TEXTURE_MAX]=
 	WEAPONS_UI_AR_TEXTURE,
 	WEAPONS_UI_HG_TEXTURE
 };
+
 //=============================================================================
 // コンストラクタ
 //=============================================================================
 CWeapons_ui::CWeapons_ui() : CObject2D(2)
 {
-	m_pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	m_frot = 0.0f;
-	m_size = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	m_col = D3DCOLOR_RGBA(255, 255, 255, 255);
 	nCountCol = 0;
-}
-
-//=============================================================================
-// デストラクタ
-//=============================================================================
-CWeapons_ui::~CWeapons_ui()
-{
 }
 
 //=============================================================================
@@ -54,7 +51,7 @@ HRESULT CWeapons_ui::Load(void)
 	{
 		D3DXCreateTextureFromFile(pDevice,				// デバイスへのポインタ
 			m_cFileName[nTexture],						// ファイルの名前
-			&m_pTexture[nTexture]);								// 読み込むメモリー
+			&m_pTexture[nTexture]);						// 読み込むメモリー
 
 	}
 	return S_OK;
@@ -82,45 +79,28 @@ void CWeapons_ui::Unload(void)
 //=============================================================================
 CWeapons_ui * CWeapons_ui::Create(void)
 {
+	//メモリの確保
 	CWeapons_ui* pWeaponsUi = NULL;
 	pWeaponsUi = new CWeapons_ui;
-
-	pWeaponsUi->Init();
+	
+	//NULLチェック
+	if (pWeaponsUi!=NULL)
+	{
+		//位置設定
+		pWeaponsUi->SetPos(D3DXVECTOR3(SCREEN_WIDTH - (SIZE_X / 2), SCREEN_HEIGHT - (SIZE_Y + 25), 0));
+		//向き設定
+		pWeaponsUi->SetRot(0.0f);
+		//サイズ設定
+		pWeaponsUi->SetSize(D3DXVECTOR3(SIZE_X, SIZE_Y, 0));
+		//カラー設定
+		pWeaponsUi->SetCol(D3DCOLOR_RGBA(255, 255, 255, 255));
+		//テクスチャ設定
+		pWeaponsUi->BindTexture(m_pTexture[CManager::GetWeaponsMode()]);
+		//初期化処理
+		pWeaponsUi->Init();
+	}
 
 	return pWeaponsUi;
-}
-
-//=============================================================================
-// 初期化処理
-//=============================================================================
-HRESULT CWeapons_ui::Init(void)
-{
-	//オブジェクト2D初期化
-	CObject2D::Init();
-	//サイズ生成
-	m_size = D3DXVECTOR3(250, 150, 0);
-	//位置設定
-	m_pos = D3DXVECTOR3(SCREEN_WIDTH - (m_size.x/2), SCREEN_HEIGHT - (m_size.y+25), 0);
-
-	//セット
-	SetPos(m_pos);
-	SetRot(m_frot);
-	SetSize(m_size);
-	SetCol(m_col);
-	//SetCol(D3DCOLOR_RGBA(255, 255, 0, 255));
-
-	//テクスチャ設定
-	BindTexture(m_pTexture[CManager::GetWeaponsMode()]);
-	return S_OK;
-}
-
-//=============================================================================
-// 終了処理
-//=============================================================================
-void CWeapons_ui::Uninit(void)
-{
-	CObject2D::Uninit();
-	
 }
 
 //=============================================================================
@@ -128,11 +108,15 @@ void CWeapons_ui::Uninit(void)
 //=============================================================================
 void CWeapons_ui::Update(void)
 {
+	//更新処理
 	CObject2D::Update();
+	
+	//カラー変更用数値が0より大きかったら
 	if (nCountCol >= 0)
 	{
 		nCountCol--;
 	}
+	//カラー変更用数値が0だと
 	if (nCountCol == 0)
 	{
 		SetCol(D3DCOLOR_RGBA(255, 255, 255, 255));
@@ -140,19 +124,12 @@ void CWeapons_ui::Update(void)
 }
 
 //=============================================================================
-// 描画関数
-//=============================================================================
-void CWeapons_ui::Draw(void)
-{
-	CObject2D::Draw();
-}
-
-//=============================================================================
 // 光る関数
 //=============================================================================
 void CWeapons_ui::Gleams(void)
 {
+	//カラー変更用数値
 	nCountCol = 5;
+	//カラー変更
 	SetCol(D3DCOLOR_RGBA(255, 241, 86, 255));
-
 }

@@ -32,23 +32,17 @@ class CGoal :public CMeshCylinder
 {
 public:
 	CGoal();
-	~CGoal();
 
 	static CGoal* Create(D3DXVECTOR3 pos, D3DXVECTOR3 rot, D3DXVECTOR3 size, D3DXCOLOR col, CManager::MODE Mode);
-
-	HRESULT Init(void);
-	void Uninit(void);
-	void Update(void);
-	void Draw(void);
-
-	void HitGoal(void);
+	void Update(void);					// 更新処理関数
+	void HitGoal(void);					// ゴール判定関数
 private:
 
 	LPDIRECT3DTEXTURE9		m_pTexture;		// テクスチャへのポインタ
 	LPDIRECT3DVERTEXBUFFER9 m_pVtxBuff;		// 頂点バッファへのポインタ
-	LPDIRECT3DINDEXBUFFER9 m_pIdxBuff;		//インデックスバッファへのポイント
-	D3DXMATRIX m_mtxWorld;					//行列計算用
-	CMesh_Cylinder *m_pMeshCylinder;		//メッシュフィールド円柱のポイント
-	CManager::MODE m_GameMode;
+	LPDIRECT3DINDEXBUFFER9	m_pIdxBuff;		// インデックスバッファへのポイント
+	D3DXMATRIX				m_mtxWorld;		// 行列計算用
+	CMesh_Cylinder*			m_pMeshCylinder;// メッシュフィールド円柱のポイント
+	CManager::MODE			m_GameMode;		// 次に画面遷移するステージ
 };
 #endif

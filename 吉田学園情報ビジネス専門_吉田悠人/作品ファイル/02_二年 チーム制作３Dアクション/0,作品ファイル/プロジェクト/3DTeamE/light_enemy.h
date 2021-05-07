@@ -52,7 +52,6 @@ public:
 	HRESULT Init(void);
 	void	Uninit(void);
 	void	Update(void);
-	void	Draw(void);
 
 private:
 	void PartsUpdate(void);

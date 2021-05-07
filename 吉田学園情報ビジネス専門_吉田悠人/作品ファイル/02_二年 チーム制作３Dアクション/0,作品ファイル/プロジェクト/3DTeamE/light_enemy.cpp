@@ -114,16 +114,24 @@ void CLightEnemy::Unload(void)
 //=============================================================================
 CLightEnemy * CLightEnemy::Create(D3DXVECTOR3 pos, D3DXVECTOR3 rot)
 {
+	//メモリ確保
 	CLightEnemy* pLightEnemy = NULL;
 	pLightEnemy = new CLightEnemy;
-	pLightEnemy->SetPos(pos);
-	pLightEnemy->SetRot(rot);
-	pLightEnemy->SetSize(D3DXVECTOR3(1.2f, 1.2f, 1.2f));
-	//巡回ルート設定
-	pLightEnemy->SetTour(0, pos);
+	
+	if (pLightEnemy!=NULL)
+	{
+		//位置設定
+		pLightEnemy->SetPos(pos);
+		//向き設定
+		pLightEnemy->SetRot(rot);
+		//サイズ設定
+		pLightEnemy->SetSize(D3DXVECTOR3(1.2f, 1.2f, 1.2f));
+		//巡回ルート設定
+		pLightEnemy->SetTour(0, pos);
 
-	pLightEnemy->Init();
-
+		//初期化処理
+		pLightEnemy->Init();
+	}
 	return pLightEnemy;
 }
 
@@ -135,6 +143,7 @@ HRESULT CLightEnemy::Init(void)
 	CEnemy::Init();
 	//アニメーション生成
 	m_pAnimaSave = CAnimation::Create(CAnimation::ANIMATION_LIGHT_ENEMY);
+	//ライフ設定
 	CEnemy::SetLife(MAX_LIFE);
 	//モデル生成
 	for (int nCount = 0; nCount < PARTS_MAX/*(読み込んだモデル数分)*/; nCount++)
@@ -145,7 +154,6 @@ HRESULT CLightEnemy::Init(void)
 		}
 		else
 		{
-
 			m_apModel[nCount] = CModel::Create(m_apModel[m_PartsData[nCount].nParent], this, m_modeldata[nCount], m_PartsData[nCount].Partspos, m_Partsrot[nCount], D3DXVECTOR3(1.0f, 1.0f, 1.0f));
 		}
 	}
@@ -332,14 +340,6 @@ void CLightEnemy::Update(void)
 	}
 	//パーツアニメーション
 	PartsUpdate();
-
-}
-
-//=============================================================================
-// 描画関数
-//=============================================================================
-void CLightEnemy::Draw(void)
-{
 
 }
 

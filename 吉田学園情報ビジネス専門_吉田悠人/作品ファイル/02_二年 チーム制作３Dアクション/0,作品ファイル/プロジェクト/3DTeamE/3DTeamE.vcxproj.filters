@@ -380,12 +380,6 @@
     <ClCompile Include="tutorial.cpp">
       <Filter>ソース ファイル\ManageMap</Filter>
     </ClCompile>
-    <ClCompile Include="goal.cpp">
-      <Filter>ソース ファイル\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="computer.cpp">
-      <Filter>ソース ファイル\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
@@ -393,9 +387,6 @@
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
     <ClCompile Include="woodenbox.cpp">
-      <Filter>ソース ファイル\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="trap.cpp">
       <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
     <ClCompile Include="crosshair.cpp">
@@ -523,6 +514,15 @@
     </ClCompile>
     <ClCompile Include="blood.cpp">
       <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="computer.cpp">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="goal.cpp">
+      <Filter>ソース ファイル\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="trap.cpp">
+      <Filter>ソース ファイル\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -25,7 +25,9 @@ public:
     } OBJTYPE;
     CObject(int nPriority = 0);
     virtual ~CObject();
-    virtual HRESULT Init(void) = 0;    //ƒˆ‰¼‘zŠÖ”ŒQ
+	
+	//ƒˆ‰¼‘zŠÖ”ŒQ
+    virtual HRESULT Init(void) = 0;  
     virtual void Uninit(void)  = 0;
     virtual void Update(void)  = 0;
     virtual void Draw(void)    = 0;

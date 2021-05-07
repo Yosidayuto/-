@@ -61,7 +61,7 @@ HRESULT CTitle::Init(void)
 	//背景ステージ生成
 	m_pStage01 = CStage01::Create(D3DXVECTOR3(0, 0, 0), vec, D3DXVECTOR3(3.0f, 3.0f, 3.0f));
 	//タイトルロゴ生成
-	m_pTitleLogo = CTitleLogo::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 200, 0.0f), D3DXVECTOR3(SCREEN_WIDTH - 200, SCREEN_HEIGHT - 500, 0.0f));
+	m_pTitleLogo = CTitleLogo::Create(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 200, 0.0f), D3DXVECTOR3(SCREEN_WIDTH - 200, SCREEN_HEIGHT - 450, 0.0f));
 	//ボタン生成
 	m_pTutorialButton = CTutorialButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4), 0.0f), D3DXVECTOR3(500, 150, 0.0f));
 	m_pStartButton = CStartButton::Create(D3DXVECTOR3(SCREEN_WIDTH / 4 + SCREEN_WIDTH / 2, SCREEN_HEIGHT - (SCREEN_HEIGHT / 4), 0.0f), D3DXVECTOR3(500, 150, 0.0f));

@@ -1,7 +1,7 @@
 //=============================================================================
 //
 // 重武装機 [heavy_enemy.h]
-// Author : 吉田悠人 二階堂汰一
+// Author : 吉田悠人
 //
 //=============================================================================
 #ifndef _HEAVY_ENEMY_H_
@@ -59,7 +59,6 @@ public:
 	HRESULT Init(void);
 	void Uninit(void);
 	void Update(void);
-	void Draw(void);
 
 private:
 	void PartsUpdate(void);

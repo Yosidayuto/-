@@ -1,7 +1,7 @@
 //=============================================================================
 //
 // 重武装機 [heavy_enemy.cpp]
-// Author : 吉田悠人 二階堂汰一
+// Author : 吉田悠人
 //
 //=============================================================================
 //*****************************************************************************
@@ -114,16 +114,21 @@ void CHeavyEnemy::Unload(void)
 //=============================================================================
 CHeavyEnemy * CHeavyEnemy::Create(D3DXVECTOR3 pos, D3DXVECTOR3 rot)
 {
+	//メモリ確保
 	CHeavyEnemy* pLightEnemy = NULL;
 	pLightEnemy = new CHeavyEnemy;
 
 	if (pLightEnemy != NULL)
 	{
+		//位置設定
 		pLightEnemy->SetPos(pos);
+		//向き設定
 		pLightEnemy->SetRot(rot);
+		//サイズ設定
 		pLightEnemy->SetSize(D3DXVECTOR3(0.2f, 0.2f, 0.2f));
 		//巡回ルート設定
 		pLightEnemy->SetTour(0, pos);
+		//初期化処理
 		pLightEnemy->Init();
 	}
 
@@ -138,6 +143,7 @@ HRESULT CHeavyEnemy::Init(void)
 	CEnemy::Init();
 	//アニメーション生成
 	m_pAnimaSave = CAnimation::Create(CAnimation::ANIMATION_HEAVY_ENEMY);
+	//エネミーのライフ設定
 	CEnemy::SetLife(MAX_LIFE);
 	//モデル生成
 	for (int nCount = 0; nCount < PARTS_MAX/*(読み込んだモデル数分)*/; nCount++)
@@ -151,7 +157,9 @@ HRESULT CHeavyEnemy::Init(void)
 			m_apModel[nCount] = CModel::Create(m_apModel[m_PartsData[nCount].nParent], this, m_modeldata[nCount], m_PartsData[nCount].Partspos, m_Partsrot[nCount], D3DXVECTOR3(1.0f, 1.0f, 1.0f));
 		}
 	}
-	m_pAnima = m_pAnimaSave;	//アニメ保存
+
+	//アニメ保存
+	m_pAnima = m_pAnimaSave;	
 	m_pAnima->SetAnimation(CAnimation::MOTION_LIGHT_ENEMY_NEUTRAL);
 
 	return S_OK;
@@ -337,14 +345,6 @@ void CHeavyEnemy::Update(void)
 	}
 	//パーツアニメーション
 	PartsUpdate();
-
-}
-
-//=============================================================================
-// 描画関数
-//=============================================================================
-void CHeavyEnemy::Draw(void)
-{
 
 }
 
